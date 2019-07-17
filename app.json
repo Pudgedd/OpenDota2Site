@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/hero/hero",
+    "pages/heroStatus/heroStatus",
+    "pages/search/search",
+    "components/match/camp/camp",
+    "pages/match/match"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#263238",
+    "navigationBarTitleText": "Dota2",
+    "backgroundColor": "#eeeeee",
+    "navigationBarTextStyle": "white"
+  }
+,
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#263238",
+    "list": [
+      {
+        "pagePath": "pages/hero/hero",
+        "text": "英雄",
+        "iconPath": "images/tabbar/basics.png",
+        "selectedIconPath": "images/tabbar/basics_cur.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "查询",
+        "iconPath": "images/tabbar/about.png",
+        "selectedIconPath": "images/tabbar/about_cur.png"
+      }
+    ]
+  }
+}

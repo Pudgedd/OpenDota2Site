@@ -1,0 +1,11 @@
+<view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入玩家名字" confirm-type="search"
+       bindinput="inputChange" bindfocus='focus' bindconfirm="query"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round" 
+       bindtap='query'>搜索</button>
+    </view>
+  </view>

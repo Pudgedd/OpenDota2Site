@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "hero-status": "../../components/hero/heroStatus/heroStatus",
+    "ran-heroes": "../../components/hero/heroes/heroes",
+    "ran-totals": "../../components/hero/totals/totals",
+    "ran-peers": "../../components/hero/peers/peers"
+  }
+}

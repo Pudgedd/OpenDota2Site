@@ -1,0 +1,159 @@
+<wxs module='filter' src='../../../wxs/filter.wxs' />
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - 264rpx)" scroll-with-animation="true" enable-back-to-top="true">
+  <block>
+    <view class="padding-sm" style='background:#ddd'>
+      <text class='cuIcon-card sm'></text>英雄属性</view>
+
+    <view class="zcr cu-list grid col-4 gridBorder">
+      <!-- 总场次 -->
+      <view class="cu-item flex-direction align-center">
+        <text class='ying you hei'>{{playersWl.win+playersWl.lose}}</text>
+        <text>总场次</text>
+      </view>
+      <!-- kda -->
+      <view class="cu-item flex-direction align-center">
+        <text class='ying you hei'>{{filter.toFixed((playersTotalsAll[3].sum/playersTotalsAll[3].n),2)}}</text>
+        <text>KDA</text>
+      </view>
+      <!-- 总胜率 -->
+      <view class="cu-item flex-direction align-center">
+        <text class='ying you hei'>{{filter.toFixed((playersWl.win*100/(playersWl.win+playersWl.lose)),1)}}%</text>
+        <text>总胜率</text>
+      </view>
+      <!-- 天梯段位 -->
+      <view class="cu-item flex-direction align-center">
+        <view style='height:100rpx;width:100rpx' wx:if="{{player}}">
+          <ran-rankIcon rank_tier="{{filter.toString(player.rank_tier)}}"></ran-rankIcon>
+        </view>
+      </view>
+    </view>
+    <!-- 详情 -->
+    <view class="zcr cu-list grid col-4 gridBorder" style='margin-top:0;transition:0.3s;height:{{downList?"200px":"0"}};overflow:hidden'>
+      <!-- 天梯胜率 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{filter.calAttack(hero.primary_attr, hero.base_attack_min, hero.base_int, hero.base_str, hero.base_agi)}}-{{filter.calAttack(hero.primary_attr, hero.base_attack_max, hero.base_int, hero.base_str, hero.base_agi)}}</text>
+        <text>攻击力</text>
+      </view>
+      <!-- 场均击杀 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{filter.toFixed(hero.base_armor+hero.base_agi/6,1)}}</text>
+        <text>护甲</text>
+      </view>
+      <!-- 场均死亡 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.move_speed}}</text>
+        <text>移动速度</text>
+      </view>
+      <!-- 场均助攻 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.base_health+hero.base_str*18}}</text>
+        <text>生命值</text>
+      </view>
+      <!-- 场均GPM -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.base_mana+hero.base_int*12}}</text>
+        <text>魔法值</text>
+      </view>
+      <!-- 场均治疗 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.base_mana_regen}}</text>
+        <text>魔法回复</text>
+      </view>
+      <!-- 场均XPM -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.attack_range}}</text>
+        <text>攻击范围</text>
+      </view>
+      <!-- 场均正补 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.attack_rate}}</text>
+        <text>攻击速度</text>
+      </view>
+      <!-- 场均反补 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.turn_rate}}</text>
+        <text>转身速率</text>
+      </view>
+      <!-- 场均伤害 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{hero.projectile_speed}}</text>
+        <text>弹道速度</text>
+      </view>
+      <!-- 场均建筑伤害 -->
+      <view class="cu-item flex-direction align-center">
+        <text>{{filter.getPrimaryAttr(hero.primary_attr)}}</text>
+        <text>主属性</text>
+      </view>
+    </view>
+    <!-- 显示详情按钮 -->
+    <view>
+      <view class='flex justify-center padding-xs' bindtap='clk'>
+        <text>{{downList?'收起':'详情'}}</text>
+        <text class="{{downList?'cuIcon-fold':'cuIcon-unfold'}}"></text>
+      </view>
+    </view>
+
+  </block>
+  <block>
+    <view class="padding-sm" style='background:#ddd'>
+      <text class='cuIcon-card sm'></text>最近比赛</view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item" style="height:60rpx">
+        <view class="zcrRecent">
+          <view class='zcrRecent-item'>
+            英雄
+          </view>
+          <view class='zcrRecent-item'>
+            结果
+          </view>
+          <view class='zcrRecent-item'>
+            Level
+          </view>
+          <view class='zcrRecent-item'>
+            游戏时间
+          </view>
+          <view class='zcrRecent-item'>
+            K/D/A
+          </view>
+        </view>
+      </view>
+      <view class="cu-item" wx:for="{{filter.slice(playersRecentMatches,0,5)}}" wx:for-item="matchItem" wx:key="{{index}}" catchtap='openMatch' data-matchid='{{matchItem.match_id}}'>
+        <view class="zcrRecent">
+          <view class="cu-avatar round lg zcrRecent-item" style="background-image:url('https://api.opendota.com{{heroStats[matchItem.hero_id].img}}');"></view>
+          <!-- 结果 -->
+          <view class='zcrRecent-item shengfu' style="background-color:{{(matchItem.player_slot<128&&matchItem.radiant_win)||(matchItem.player_slot>=128&&!matchItem.radiant_win)? 'green': 'gray'}}">{{(matchItem.player_slot<128&&matchItem.radiant_win)||(matchItem.player_slot>=128&&!matchItem.radiant_win)? "胜": "负"}}</view>
+              <!-- level -->
+              <view class='zcrRecent-item'>
+                <!-- 游戏level -->
+                <text>{{filter.skill(matchItem.skill)}}</text>
+                <!-- 游戏模式 -->
+                <text>{{filter.game_mode(matchItem.game_mode)}}</text>
+              </view>
+              <!-- 结束时间 -->
+              <view class='zcrRecent-item'>
+                <!-- 时间 -->
+                <text>{{filter.findLastTime(matchItem.start_time)}}</text>
+                <!-- 时长 -->
+                <text>{{filter.dur(matchItem.duration)}}</text>
+              </view>
+              <!-- K/D/A -->
+              <view class='zcrRecent-item'>
+                <!-- kda -->
+                <text>{{filter.toFixed((matchItem.kills+matchItem.assists)/matchItem.deaths,1)}}</text>
+                <!-- K/D/A -->
+                <text>{{matchItem.kills}}/{{matchItem.deaths}}/{{matchItem.assists}}</text>
+              </view>
+          </view>
+        </view>
+      </view>
+      <!-- 查看全部 -->
+      <view>
+        <view class='flex justify-end padding-xs'>
+          <text>查看全部</text>
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+  </block>
+</scroll-view>
+

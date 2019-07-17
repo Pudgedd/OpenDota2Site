@@ -1,0 +1,21 @@
+<!-- 玩家名卡片 -->
+<scroll-view scroll-y class="indexes">
+  <block>
+    <view class="cu-list grid col-2">
+      <view wx:for="{{heroList}}" wx:for-item="item" wx:key="{{index}}"  style="border:1rpx solid #fff">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item flex justify-between " data-index="{{index}}" bindtap='navigate' style="background:url(https://api.opendota.com{{item.img}}) center; height:250rpx;">
+              <view class="content flex-sub">
+                <view class="text-grey flex justify-start">
+                  <!--玩家名称  -->
+                  <view style='width:20vw;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; color:#fff;font-weight:bold'>{{item.localized_name}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
