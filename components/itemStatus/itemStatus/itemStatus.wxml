@@ -1,0 +1,34 @@
+<wxs module='filter' src='../../../wxs/filter.wxs' />
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - 264rpx)" scroll-with-animation="true" enable-back-to-top="true">
+  <block>
+
+  <view class="padding-sm" style='background:#ddd'>
+    <text class='cuIcon-card sm'></text>摘要
+  </view>
+
+  <view class="padding bg-white">
+
+  <view class="text-left text-black padding">{{itemDetail.item_detail_info.desc}}</view>
+  
+  <view class="text-left text-sm padding">属性：{{itemDetail.item_detail_info.attrib}}</view>
+  <view class="text-left text-sm padding">CD：{{itemDetail.item_detail_info.cd}}</view>
+  <view class="text-left text-sm padding">魔耗：{{itemDetail.item_detail_info.mc}}</view>
+  
+  <view class="text-left text-grey padding">{{itemDetail.item_detail_info.notes}}</view>
+
+  <view class="text-grey padding">{{itemDetail.item_detail_info.lore}}</view>
+
+</view>
+
+  <view class="padding-sm" style='background:#ddd'>
+    <text class='cuIcon-card sm'></text>合成
+  </view>
+<view class="padding bg-white">
+
+  <view class="text-left text-black padding">{{itemDetail.item_detail_info.components_full}}</view>
+</view>
+
+  </block>
+</scroll-view>
+

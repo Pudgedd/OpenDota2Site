@@ -1,0 +1,10 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="cu-card">
+    <view class="cu-item bg-img shadow-blur" bindtap="navigate" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
+      <view class="cardTitle" style="background-image:url({{item.img}})" >
+       <view class="cardTitleText"> {{item.title}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

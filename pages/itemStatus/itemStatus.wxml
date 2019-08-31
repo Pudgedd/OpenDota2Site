@@ -4,13 +4,13 @@
 <view class="cu-card case no-card">
   <view class="cu-item shadow ">
     <view class="cu-list flex justify-center bg-dota-black">
-      <view class="cu-avatar round lg" style="background-image:url(http://cdn.dota2.com/apps/dota2/images/heroes/{{maxHeroDetail.hero_name}}_hphover.png);height:120rpx;width:120rpx;"></view>
+      <view class="cu-avatar round lg" style="background-image:url(http://cdn.dota2.com/apps/dota2/images/items/{{itemDetail.item_detail_info.img}});height:120rpx;width:120rpx;"></view>
     </view>
     <view class="cu-list bg-dota-black" style='margin-top:0;padding:10rpx;text-align:center;'>
       <view class="cu-item ">
         <view class="content flex-direction align-center">
-          <view style='color:white'>{{heroDetail.localName}}</view>
-          <view class="text-grey">{{filter.getPrimaryAttr(hero.primary_attr)}} - {{heroDetail.attack}} - {{heroDetail.roles}}</view>
+          <view style='color:white'>{{itemDetail.item_info.cn_name}}</view>
+            <view class="text-grey">所需金钱：{{itemDetail.item_detail_info.cost}}</view>
         </view>
       </view>
     </view>
@@ -26,10 +26,10 @@
   </view>
   <view class="flex text-center">
     <view class="cu-item flex-sub {{TabCur==0?'text-white cur':'text-gray'}}" bindtap="tabSelect" data-id="0">
-      综合统计
+      物品介绍
     </view>
     <view class="cu-item flex-sub {{TabCur==1?'text-white cur':'text-gray'}}" bindtap="tabSelect" data-id="1">
-      英雄排名
+      使用排名
     </view>
   </view>
 
@@ -39,10 +39,10 @@
 <swiper current="{{TabCur}}" style='height:calc(100vh - 264rpx)' bindchange="change">
   <block>
     <swiper-item>
-      <hero-status hero="{{hero}}" heroDetail="{{heroDetail}}" maxHeroDetail="{{maxHeroDetail}}"  heroRecentMatches="{{heroRecentMatches}}"></hero-status>
+      <item-status itemDetail="{{itemDetail}}"></item-status>
     </swiper-item>
     <swiper-item>
-      <hero-rankings topPlayers="{{topPlayers}}" ></hero-rankings>
+      <ran-rankings heroUsedList="{{heroUsedList}}" ></ran-rankings>
     </swiper-item>
   </block>
 </swiper>

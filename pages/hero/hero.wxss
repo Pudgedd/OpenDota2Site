@@ -1,1 +1,15 @@
 /* pages/hero/hero.wxss */
+
+.cu-list.menu-avatar>.cu-item {
+  padding-right: 0rpx;
+}
+
+.cu-list.menu-avatar>.cu-item .content {
+left: 70rpx;
+bottom: 45rpx;
+}
+
+.hero-list {
+  height: 100%;
+  overflow: auto;
+}

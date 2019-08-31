@@ -7,24 +7,50 @@ Page({
    */
   data: {
     TabCur: 0,
-    hero: null
+    hero: null,
+    heroDetail: null,
+    maxHeroDetail:null,
+    heroRecentMatches: null,
+    topPlayers: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let {
-      hero_index
-    } = options
+    let hero_id = options.hero_id
     this.setData({
-      hero_index,
+      hero_id
     })
     let heroStatsArr = wx.getStorageSync('pHeroStats')
     this.setData({
-      hero:heroStatsArr[hero_index]
+      hero: heroStatsArr[hero_id]
     })
-    console.log(heroStatsArr[hero_index])
+    app.openApiProxy({
+      aName: "heroDetail",
+      args: {
+        name: heroStatsArr[hero_id].name.slice(14)
+      }
+    }).then(res => {
+      console.log(res.data)
+      this.setData({
+        heroDetail: res.data
+      })
+    })
+    
+    app.openApiProxy({
+      aName: "maxHeroDetail",
+      args: {
+        name: heroStatsArr[hero_id].name.slice(14)
+      }
+    }).then(res => {
+      console.log(res.result)
+      this.setData({
+        maxHeroDetail: res.result
+      })
+    })
+
+    this.callComponent()
   },
 
   /**
@@ -81,6 +107,54 @@ Page({
     })
   },
   change(e) {
+    this.setData({
+      TabCur: e.detail.current
+    })
     this.callComponent()
+  },
+
+  callComponent() {
+    let cur = this.data.TabCur
+    if (cur == 0) {
+      if (!this.data.heroRecentMatches) {
+        this.getData('heroRecentMatches')
+      }
+    } else if (cur == 1) {
+      if (!this.data.topPlayers) {
+        this.getData('topPlayers')
+      }
+    } else if (cur == 2) {
+      
+    } else if (cur == 3) {
+      
+    }
+  },
+  getData(cmd) {
+    let hero_id = this.data.hero_id
+    if (cmd == "heroRecentMatches") {
+      app.openApiProxy({
+        aName: "heroRecentMatches",
+        args: {
+          hero_id,
+        }
+      }).then(res => {
+        this.setData({
+          heroRecentMatches: res
+        })
+      })
+    } else if (cmd == "topPlayers") {
+      app.openApiProxy({
+        aName: "topPlayers",
+        args: {
+          hero_id
+        }
+      }).then(res => {
+        console.log(res.rankings)
+        this.setData({
+          topPlayers: res.rankings
+        })
+      })
+    }
   }
+  
 })

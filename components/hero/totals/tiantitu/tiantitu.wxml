@@ -1,4 +1,0 @@
-<view>
-  <!-- 天梯折线 -->
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-</view>

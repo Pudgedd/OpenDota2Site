@@ -1,0 +1,48 @@
+<view class="cu-timeline">
+  <view class="cu-time">08-31</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">下午</view>
+        <view class="cu-tag line-cyan">16:00</view>
+      </view>
+      <view class="margin-top">增加了物品功能，我变得更强壮了</view>
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-time">08-28</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">下午</view>
+        <view class="cu-tag line-cyan">19:00</view>
+      </view>
+      <view class="margin-top">我上线啦🐣</view>
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-time">08-25</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">上午</view>
+        <view class="cu-tag line-cyan">11:17</view>
+      </view>
+      <view class="margin-top">LGD 1:2 Liquid</view>
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-time">很久以前</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">上午</view>
+        <view class="cu-tag line-cyan">xx:xx</view>
+      </view>
+      <view class="margin-top">开始学习小程序</view>
+    </view>
+  </view>
+</view>

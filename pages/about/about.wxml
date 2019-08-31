@@ -1,0 +1,4 @@
+<button class="auth-info-btn" hover-class="none" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+<ran-about userInfo="{{userInfo}}"></ran-about>
+<ran-timeline></ran-timeline>
+</button>

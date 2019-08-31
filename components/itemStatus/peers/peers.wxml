@@ -1,0 +1,135 @@
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - 264rpx)" scroll-with-animation="true" enable-back-to-top="true">
+  <block>
+    <view class="padding-sm" style='background:#ddd'>
+      <text class='cuIcon-friendfavor sm'></text> 使用英雄</view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item" style="height:60rpx">
+        <view class="zcrRecent">
+          <view class='zcrRecent-item'>
+            英雄
+          </view>
+          <view class='zcrRecent-item'>
+            胜率
+          </view>
+          <view class='zcrRecent-item'>
+            场次
+          </view>
+        </view>
+      </view>
+      <view class="cu-item" wx:for="{{heroUsedList}}" wx:for-item="item" wx:key="{{index}}" style='height:120rpx' data-index="{{index}}" bindtap='navigatePeer'>
+        <view class="zcrRecent">
+          <image class="cu-avatar lg zcrRecent-item" lazy-load="true" src="http://cdn.dota2.com/apps/dota2/images/heroes/{{item.hero_info.img_name}}_hphover.png"></image>
+          <!-- 胜率 -->
+          <view class='zcrRecent-item'>
+            <text>{{item.win_rate}}%</text>
+            <!-- 进度条 -->
+            <view class="cu-progress">
+              <view class="bg-red" style="width:{{item.win_rate}}%">{{item.win_rate}}%</view>
+              </view>
+            </view>
+          </view>
+          <!-- 场次 -->
+          <view class='zcrRecent-item'>
+            <text>{{item.count}}万</text>
+          </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+<wxs module="filter">
+  module.exports = {
+    toFixed: toFixed,
+    toString: toString,
+    slice: slice,
+    findLastTime: findLastTime,
+    skill: skill,
+    game_mode: game_mode,
+    dur: dur
+  }
+
+  function toFixed(a, b) {
+    return a.toFixed(b)
+  }
+
+  function toString(a) {
+    return a + ""
+  }
+
+  function slice(arr, start, end) {
+    return arr? arr.slice(start, end) : [];
+  }
+
+  function skill(a) {
+    switch (a) {
+      case 1:
+        return 'Normal';
+      case 2:
+        return 'High';
+      case 3:
+        return 'Very High';
+      default:
+        return 'unknown'
+    }
+  }
+
+  function game_mode(a) {
+    switch (a) {
+      case 22:
+        return '全英雄选择';
+      case 3:
+        return '随机征召';
+      default:
+        return 'unknown'
+    }
+  }
+
+  function findLastTime(last_played) {
+    var time = Date.now() / 1000 - last_played
+
+    var year = parseInt(time / 60 / 60 / 24 / 30 / 12)
+    if (year != 0) {
+      return year + " 年之前"
+    }
+    var month = parseInt(time / 60 / 60 / 24 / 30) % 12
+    if (month != 0) {
+      return month + " 个月之前"
+    }
+    var day = parseInt(time / 60 / 60 / 24) % 30
+    if (day != 0) {
+      return day + " 天之前"
+    }
+    var hour = parseInt(time / 60 / 60) % 24
+    if (hour != 0) {
+      return hour + " 小时之前"
+    }
+    var min = parseInt(time / 60) % 60
+    if (min != 0) {
+      return min + " 分钟之前"
+    }
+    var sec = time % 60
+    return sec + " 秒之前"
+  }
+
+  function dur(a) {
+    var hour = parseInt(a / 3600)
+    if (hour > 1) {
+      hour = hour + ":"
+    } else {
+      hour = ""
+    }
+    var min = parseInt(a % 3600 / 60)
+    if (min < 10) {
+      min = "0" + min + ":"
+    } else {
+      min = min + ":"
+    }
+    var sec = parseInt(a % 60)
+    if (sec < 10) {
+      sec = "0" + sec
+    } else {
+      sec = sec
+    }
+    return hour + min + sec
+  }
+</wxs>

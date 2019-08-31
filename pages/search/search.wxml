@@ -1,7 +1,7 @@
 <view class="cu-bar bg-white search fixed" style="">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="输入昵称/ID/比赛编号" confirm-type="search" bindinput="inputChange" bindfocus='iptFcs' bindconfirm="query" value="{{q}}"></input>
+    <input type="text" placeholder="输入数字ID/比赛编号" confirm-type="search" bindinput="inputChange" bindfocus='iptFcs' bindconfirm="query" value="{{q}}"></input>
   </view>
   <view class="action">
     <button class="cu-btn bg-black shadow-blur round" bindtap='query'>搜索</button>

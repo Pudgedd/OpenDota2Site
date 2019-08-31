@@ -10,7 +10,14 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.0",
@@ -40,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -50,10 +57,24 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "hero",
 					"pathName": "pages/heroStatus/heroStatus",
-					"query": "hero_id=4",
+					"query": "hero_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "herolist",
+					"pathName": "pages/hero/hero",
+					"query": "hero_id=1",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "itemStatus",
+					"pathName": "pages/itemStatus/itemStatus",
+					"query": "item_name=rod_of_atos",
 					"scene": null
 				}
 			]

@@ -48,9 +48,15 @@ Component({
     attached: function() {
       //先去看看有没有英雄数据
       if (!wx.getStorageSync('pHeroStats')) {
-        //跳转loading页
-        wx.navigateTo({
-          url: '/pages/loading/loading'
+        //请求接口放到storage里
+        app.openApiProxy({
+          aName: "heroStats",
+          args: {}
+        }).then(res => {
+          wx.setStorage({
+            key: 'pHeroStats',
+            data: res,
+          })
         })
       } else {
         //取出来

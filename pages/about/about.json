@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "ran-about": "../../components/about/about",
+    "ran-timeline": "../../components/timeline/timeline"
+  }
+}

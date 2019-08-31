@@ -1,21 +1,68 @@
-<!-- 玩家名卡片 -->
-<scroll-view scroll-y class="indexes">
+<!-- tab栏 -->
+<scroll-view scroll-x class="bg-dota-black nav" id="Ztab" style='position:relative'>
+  <!-- 小箭头 -->
+  <view class="sanjiao" style='transform:translateX({{TabCur*25}}vw)'>
+    <view>
+
+    </view>
+  </view>
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{TabCur==0?'text-white cur':'text-gray'}}" bindtap="tabSelect" data-id="0">
+      英雄
+    </view>
+    <view class="cu-item flex-sub {{TabCur==1?'text-white cur':'text-gray'}}" bindtap="tabSelect" data-id="1">
+      物品
+    </view>
+  </view>
+</scroll-view>
+<!-- router-view -->
+<swiper current="{{TabCur}}" style='height:calc(100vh - 90rpx)' bindchange="change">
   <block>
-    <view class="cu-list grid col-2">
-      <view wx:for="{{heroList}}" wx:for-item="item" wx:key="{{index}}"  style="border:1rpx solid #fff">
+    <swiper-item>
+      
+        <scroll-view scroll-y class="hero-list">
+  <block>
+    <view class="cu-list grid col-3">
+      <view wx:for="{{maxHeroList}}" wx:for-item="item" wx:key="{{index}}"  style="border:1rpx solid #fff">
         <view class="cu-item shadow">
-          <view class="cu-list menu-avatar">
-            <view class="cu-item flex justify-between " data-index="{{index}}" bindtap='navigate' style="background:url(https://api.opendota.com{{item.img}}) center; height:250rpx;">
+        <view class="cu-list menu-avatar">
+          <!-- https://api.opendota.com{{item.img}} -->
+        <image class="cu-item flex justify-between " data-index="{{index}}" bindtap='navigate' src="http://cdn.dota2.com/apps/dota2/images/heroes/{{item.img_name}}_hphover.png" lazy-load="true">
               <view class="content flex-sub">
                 <view class="text-grey flex justify-start">
-                  <!--玩家名称  -->
-                  <view style='width:20vw;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; color:#fff;font-weight:bold'>{{item.localized_name}}</view>
+                  <!--名称  -->
+                <view style='white-space: nowrap; color:#fff;'>{{item.name}}</view>
                 </view>
               </view>
-            </view>
+            </image>
           </view>
         </view>
       </view>
     </view>
   </block>
 </scroll-view>
+
+    </swiper-item>
+    <swiper-item>
+    <scroll-view scroll-y class="hero-list">
+  <block>
+    <view class="cu-list grid col-4">
+      <view wx:for="{{maxItemList}}" wx:for-item="item" wx:key="{{index}}"  style="border:1rpx solid #fff">
+        <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <!-- https://api.opendota.com{{item.img}} -->
+        <image class="cu-item flex justify-between " data-index="{{index}}" bindtap='navigateToItem' src="http://cdn.dota2.com/apps/dota2/images/items/{{item.img_name}}_lg.png" lazy-load="true">
+              <view class="content flex-sub">
+                <view class="text-grey flex justify-start">
+                </view>
+              </view>
+            </image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+    </swiper-item>
+  </block>
+</swiper>

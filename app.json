@@ -1,10 +1,14 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/about/about",
     "pages/hero/hero",
     "pages/heroStatus/heroStatus",
+    "pages/itemStatus/itemStatus",
     "pages/search/search",
     "components/match/camp/camp",
-    "pages/match/match"
+    "pages/match/match",
+    "pages/league/league"
   ],
   "window": {
     "navigationBarBackgroundColor": "#263238",
@@ -23,14 +27,14 @@
     "backgroundColor": "#263238",
     "list": [
       {
-        "pagePath": "pages/hero/hero",
-        "text": "英雄",
+        "pagePath": "pages/home/home",
+        "text": "首页",
         "iconPath": "images/tabbar/basics.png",
         "selectedIconPath": "images/tabbar/basics_cur.png"
       },
       {
-        "pagePath": "pages/search/search",
-        "text": "查询",
+        "pagePath": "pages/about/about",
+        "text": "关于",
         "iconPath": "images/tabbar/about.png",
         "selectedIconPath": "images/tabbar/about_cur.png"
       }

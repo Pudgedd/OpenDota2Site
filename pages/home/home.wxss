@@ -1,0 +1,50 @@
+.cu-card>.cu-item {
+  margin: 0;
+  background-color: transparent;
+}
+.cardTitle{
+  color: #fff;
+  padding: 95rpx 30rpx;
+  box-sizing: border-box;
+  margin: 20rpx;
+  font-size: 40rpx;
+  font-weight: 300;
+  position: relative;
+  text-shadow: 0px 0px 6rpx rgba(0,0,0,0.3);
+  box-shadow: 10rpx 10rpx 20rpx rgba(0,0,0,0.3);
+  height: calc(25vh - 20rpx);
+  border-radius: 10rpx;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cardTitleText {
+  transform: skew(-10deg, 0deg);
+}
+
+.cardTitle::before{
+  content: "";
+  position: absolute;
+  width: 60rpx;
+  height: 6rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  display: block;
+  top: 60rpx;
+  left: 50rpx;  
+  transform: skew(10deg, 0deg);
+}
+.cardTitle::after{
+  content: "";
+  position: absolute;
+  width: 140rpx;
+  border-radius: 6rpx;
+  height: 24rpx;
+  background-color: #fff;
+  display: block;
+  bottom: 76rpx;
+  left: 90rpx;  
+  transform: skew(10deg, 0deg);
+  opacity: 0.1;
+}

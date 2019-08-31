@@ -1,0 +1,21 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+  <view style="background-image:url({{userInfo.avatarUrl}});" class="cu-avatar round xl margin-left" mode="widthFix">
+      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+  </view>
+    <view class="margin-top-sm">
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+  </view>
+  
+</scroll-view>
