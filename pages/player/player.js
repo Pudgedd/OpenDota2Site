@@ -7,6 +7,7 @@ Page({
    */
   data: {
     TabCur: 0,
+    heroList: null,
     playersTotalAll: null,
     playersTotal100: null,
     playersTotal20: null,
@@ -18,6 +19,37 @@ Page({
     playersRatings:null,
     player:null,
     playersHeroes:null,
+  },
+
+  showHeros() {
+    //先去看看有没有英雄数据
+    if (!wx.getStorageSync('pHeroStats')) {
+      //请求接口放到storage里
+      app.openApiProxy({
+        aName: "heroStats",
+        args: {}
+      }).then(res => {
+        let heroStats = {}
+        res.forEach(item => {
+          heroStats[item.id] = item
+        })
+        wx.setStorage({
+          key: 'pHeroStats',
+          data: heroStats,
+        })
+        this.setData({
+          heroList: heroStats
+        })
+      })
+    } else {
+      //取出来
+      //拿ID作为KEY保存
+      //存到本地data中
+      let heroStatsArr = wx.getStorageSync('pHeroStats')
+      this.setData({
+        heroList: heroStatsArr
+      })
+    }
   },
 
   /**
@@ -45,6 +77,8 @@ Page({
         player: res,
       })
     })
+    this.showHeros();
+
     this.callComponent()
   },
 
@@ -248,7 +282,6 @@ Page({
           account_id,
         }
       }).then(res => {
-        console.log("111"+res)
         this.setData({
           playersPros: res
         })

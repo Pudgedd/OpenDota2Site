@@ -54,6 +54,7 @@ Page({
       }).then(res => {
         let maxHeroStats = {}
         res.result.stat.forEach(item => {
+          // item.isShow = true,
           maxHeroStats[item.id] = item
         })
         wx.setStorage({
@@ -77,27 +78,30 @@ Page({
   showMaxItems() {
     //先去看看有没有英雄数据
     if (!wx.getStorageSync('pMaxItemStats')) {
+      //提示加载中
+      wx.showLoading({
+        title: '加载中',
+      })
+
       //请求接口放到storage里
       app.openApiProxy({
         aName: "maxItemStat",
         args: {}
       }).then(res => {
-        console.log(res)
-        let maxItemStat = res.result.stat;
         wx.setStorage({
           key: 'pMaxItemStats',
-          data: maxItemStat,
+          data: res.result.stat,
         })
         this.setData({
-          maxItemList: maxItemStats
+          maxItemList: res.result.stat
         })
+        wx.hideLoading();
       })
     } else {
       //取出来
       //拿ID作为KEY保存
       //存到本地data中
       let itemStatsArr = wx.getStorageSync('pMaxItemStats')
-      console.log(itemStatsArr)
       this.setData({
         maxItemList: itemStatsArr
       })
@@ -109,6 +113,7 @@ Page({
     this.showMaxHeros();
     this.showMaxItems();
   },
+
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target
@@ -204,5 +209,28 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
-  }
+  },
+
+  onShareAppMessage() {
+  },
+
+  // searchHero(e) {
+  //   let key = e.detail.value.toLowerCase();
+  //   let list = this.data.maxHeroList;
+  //   console.log(list)
+  //   for (let i = 1; i < list.length; i++) {
+  //     if(list[i] != null){
+  //       let a = key;
+  //       let b = list[i].name.toLowerCase();
+  //       if (b.search(a) != -1) {
+  //         list[i].isShow = true
+  //       } else {
+  //         list[i].isShow = false
+  //       }
+  //     }
+  //   }
+  //   this.setData({
+  //     maxHeroList: list
+  //   })
+  // }
 })

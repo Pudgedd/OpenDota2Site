@@ -3,6 +3,8 @@
     "pages/home/home",
     "pages/about/about",
     "pages/hero/hero",
+    "pages/store/store",
+    "pages/player/player",
     "pages/heroStatus/heroStatus",
     "pages/itemStatus/itemStatus",
     "pages/search/search",

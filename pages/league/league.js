@@ -80,7 +80,7 @@ Page({
         aName: "leagueList",
         args: {
           pageNum:1,
-          pageSize:5
+          pageSize:30
         }
       }).then(res => {
         res.data.forEach(item => {
@@ -164,6 +164,9 @@ Page({
     this.setData({
       ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
     })
+  },
+
+  onShareAppMessage() {
   },
 
   // ListTouch计算滚动

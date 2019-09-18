@@ -1,0 +1,50 @@
+<!-- tab栏 -->
+<scroll-view scroll-x class="bg-dota-black nav" id="Ztab" style='position:relative'>
+  <!-- 小箭头 -->
+  <view class="sanjiao" style='transform:translateX({{TabCur*25}}vw)'>
+    <view>
+    </view>
+  </view>
+</scroll-view>
+
+	<!-- <view class="cu-form-group">
+		<view class="title">筛选</view>
+		<picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
+			<view class="picker">
+				{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+			</view>
+		</picker>
+	</view> -->
+
+<scroll-view scroll-y class="hero-list">
+  <block>
+    <view class="cu-list grid col-2">
+      <view wx:for="{{storeList}}" wx:for-item="item" wx:key="{{index}}"  style="border:6rpx solid #f3f3f3">
+        
+        <view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="{{item.image_url}}" mode="widthFix"></image>
+      <view class="cu-tag bg-cyan">{{item.rarity_name}}</view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="text-grey">{{item.name}}</view>
+          <view class="text-orange text-sm flex justify-between">
+            {{item.currency}}{{item.price}}
+            <view class="text-gray text-sm">
+              <text class="margin-lr-xs"></text> 成交量 {{item.deal}}
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+</view>
+
+</view>
+  </block>
+</scroll-view>

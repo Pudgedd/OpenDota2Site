@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -75,6 +75,13 @@
 					"name": "itemStatus",
 					"pathName": "pages/itemStatus/itemStatus",
 					"query": "item_name=rod_of_atos",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "饰品",
+					"pathName": "pages/store/store",
+					"query": "",
 					"scene": null
 				}
 			]

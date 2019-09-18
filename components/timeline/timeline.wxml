@@ -1,4 +1,16 @@
 <view class="cu-timeline">
+  <view class="cu-time">09-18</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">下午</view>
+        <view class="cu-tag line-cyan">09:40</view>
+      </view>
+      <view class="margin-top">初步增加了饰品功能，不过没有搜索，后续会加入～</view>
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
   <view class="cu-time">08-31</view>
   <view class="cu-item">
     <view class="content">
@@ -30,7 +42,7 @@
         <view class="cu-tag bg-cyan">上午</view>
         <view class="cu-tag line-cyan">11:17</view>
       </view>
-      <view class="margin-top">LGD 1:2 Liquid</view>
+      <view class="margin-top">LGD 1:2 Liquid，真是好气，我的本子。。</view>
     </view>
   </view>
 </view>
@@ -42,7 +54,7 @@
         <view class="cu-tag bg-cyan">上午</view>
         <view class="cu-tag line-cyan">xx:xx</view>
       </view>
-      <view class="margin-top">开始学习小程序</view>
+      <view class="margin-top">初中第一次接触dota就喜欢上了这个游戏，现在没有朋友一起玩了，偶尔会关注比赛。做这个小程序纯碎是出于对游戏对爱好，希望大家会喜欢，我会一直更新的。</view>
     </view>
   </view>
 </view>

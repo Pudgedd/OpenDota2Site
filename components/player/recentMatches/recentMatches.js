@@ -12,6 +12,7 @@ Component({
     playersWl: Object,
     playersTotalsAll: Array,
     playersRecentMatches: Object,
+    heroList: Object
   },
   /**
    * 组件的初始数据
@@ -28,6 +29,7 @@ Component({
       //     aName: "heroStats",
       //     args: {}
       //   }).then(res => {
+      //     console.log(res)
       //     let heroStats = {}
       //     res.forEach(item => {
       //       heroStats[item.id] = item

@@ -53,9 +53,16 @@ Component({
           aName: "heroStats",
           args: {}
         }).then(res => {
+          let heroStats = {}
+          res.forEach(item => {
+            heroStats[item.id] = item
+          })
           wx.setStorage({
             key: 'pHeroStats',
-            data: res,
+            data: heroStats,
+          })
+          this.setData({
+            heroPic: heroStats[this.data.playerData.hero_id].img
           })
         })
       } else {
@@ -63,12 +70,8 @@ Component({
         //拿ID作为KEY保存
         //存到本地data中
         let heroStatsArr = wx.getStorageSync('pHeroStats')
-        let heroStats = {}
-        heroStatsArr.forEach(item => {
-          heroStats[item.id] = item
-        })
         this.setData({
-          heroPic: heroStats[this.data.playerData.hero_id].img
+          heroPic: heroStatsArr[this.data.playerData.hero_id].img
         })
       }
 
@@ -90,7 +93,6 @@ Component({
       this.setData({
         benchmarks: Object.values(this.data.playerData.benchmarks)
       })
-      console.log(this.data.benchmarks)
     },
     moved: function() {},
     detached: function() {},

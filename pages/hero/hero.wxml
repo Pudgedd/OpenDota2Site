@@ -6,6 +6,7 @@
 
     </view>
   </view>
+
   <view class="flex text-center">
     <view class="cu-item flex-sub {{TabCur==0?'text-white cur':'text-gray'}}" bindtap="tabSelect" data-id="0">
       英雄
@@ -15,6 +16,7 @@
     </view>
   </view>
 </scroll-view>
+
 <!-- router-view -->
 <swiper current="{{TabCur}}" style='height:calc(100vh - 90rpx)' bindchange="change">
   <block>

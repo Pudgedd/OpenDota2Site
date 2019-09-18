@@ -37,6 +37,37 @@
   </block>
 </scroll-view>
 
+<!-- 认证玩家名卡片 -->
+<scroll-view scroll-y class="indexes" style="height:calc(100vh - 42px);margin-top:42px;" wx:if="{{verifiedList.length>0}}">
+  <block>
+    <view class="padding indexItem-{{list[index]}}" id="indexes-{{list[index]}}" data-index="{{list[index]}}">知名玩家</view>
+    <view class="cu-list menu no-padding">
+      <view wx:for="{{verifiedList}}" wx:for-item="qItem" wx:key="{{index}}" class="cu-card case no-card" style='margin-bottom:6rpx'>
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item flex justify-between " data-index="{{index}}" bindtap='navigateVerified'>
+              <view class="cu-avatar round lg" style="background-image:url({{qItem.avatar_url}});"></view>
+              <view class="content flex-sub">
+                <view class="text-grey flex justify-start">
+                  <!--玩家名称  -->
+                  <view style='width:20vw;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>{{qItem.verified_name}}</view>
+                  <!-- 玩家ID -->
+                  <view class="text-sm">ID:{{qItem.account_id}}</view>
+                </view>
+                <!-- 最近游戏日期 -->
+                <view class="text-gray text-sm flex justify-between">
+                  <view>正在游戏中</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+
 <!-- 搜索历史 -->
 <scroll-view scroll-y class="indexes" style="height:calc(100vh - 42px);margin-top:42px;" wx:if="{{historyQuery.length>0&&showHistory}}">
   <block>

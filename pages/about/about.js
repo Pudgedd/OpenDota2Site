@@ -42,5 +42,13 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  onShareAppMessage() {
+    return {
+      title: 'Dota2赛高:-)',
+      imageUrl: '/images/share.jpg',
+      path: '/pages/home/home'
+    }
+  },
 })

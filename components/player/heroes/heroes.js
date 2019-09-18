@@ -7,6 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    heroList:Object,
     playersHeroes:Object,
     playersRankings:Object
   },
@@ -55,7 +56,7 @@ Component({
   methods: {
     checkData() {
       console.log("hero看到啦")
-    }
+    },
   },
   
 })

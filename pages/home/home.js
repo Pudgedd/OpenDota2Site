@@ -28,7 +28,7 @@ Page({
       {
         title: '饰品(Coming soon...)',
         img: 'https://image.weilanwl.com/color2.0/plugin/qpczdh2307.jpg',
-        url: '/verticalnav/verticalnav'
+        url: '/pages/store/store'
       }
     ]
   },
@@ -43,4 +43,12 @@ Page({
     })
   },
   // ListTouch计算滚动
+
+  onShareAppMessage() {
+    return {
+      title: 'Dota2赛高:-)',
+      imageUrl: '/images/share.jpg',
+      path: '/pages/home/home'
+    }
+  },
 })

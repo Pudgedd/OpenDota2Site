@@ -13,6 +13,7 @@ Page({
     historyQuery: [],
     showHistory:true,
     searchList: [],
+    verifiedList: [],
   },
 
   /**
@@ -22,6 +23,9 @@ Page({
 
   },
   onShow: function() {
+    //获取认证玩家
+    this.showVerifiedList();
+
     // 页面显示从storage取历史搜索
     let historyQuery=wx.getStorageSync('historyQuery')
     this.setData({
@@ -94,7 +98,8 @@ Page({
       this.setData({
         q:"",
         searchList: res,
-        showHistory: false
+        showHistory: false,
+        verifiedList: new Array()
       })
       wx.hideLoading()
     }).catch(e => {
@@ -125,6 +130,7 @@ Page({
   iptFcs(){
     this.setData({
       searchList:new Array(),
+      verifiedList:new Array(),
       showHistory: true
     })
   },
@@ -139,5 +145,36 @@ Page({
     wx.navigateTo({
       url: `/pages/player/player?account_id=${account_id}`
     })
-  }
+  },
+  
+  navigateVerified(e) {
+    let account_id = this.data.verifiedList[e.currentTarget.dataset.index].account_id
+    wx.navigateTo({
+      url: `/pages/player/player?account_id=${account_id}`
+    })
+  },
+
+
+  showVerifiedList() {
+      //提示加载中
+      wx.showLoading({
+        title: '加载中',
+      })
+
+      //请求接口放到storage里
+      app.openApiProxy({
+        aName: "maxVerifiedList",
+        args: {
+          offset: 0,
+          limit: 30
+        }
+      }).then(res => {
+        console.log(res)
+        this.setData({
+          verifiedList: res.result,
+          showHistory: false
+        })
+        wx.hideLoading();
+      })
+  },
 })

@@ -118,7 +118,7 @@
       </view>
       <view class="cu-item" wx:for="{{filter.slice(playersRecentMatches,0,5)}}" wx:for-item="matchItem" wx:key="{{index}}" catchtap='openMatch' data-matchid='{{matchItem.match_id}}'>
         <view class="zcrRecent">
-          <view class="cu-avatar round lg zcrRecent-item" style="background-image:url('https://api.opendota.com{{heroStats[matchItem.hero_id].img}}');"></view>
+          <view class="cu-avatar round lg zcrRecent-item" style="background-image:url('https://api.opendota.com{{heroList[matchItem.hero_id].img}}');"></view>
           <!-- 结果 -->
           <view class='zcrRecent-item shengfu' style="background-color:{{(matchItem.player_slot<128&&matchItem.radiant_win)||(matchItem.player_slot>=128&&!matchItem.radiant_win)? 'green': 'gray'}}">{{(matchItem.player_slot<128&&matchItem.radiant_win)||(matchItem.player_slot>=128&&!matchItem.radiant_win)? "胜": "负"}}</view>
               <!-- level -->

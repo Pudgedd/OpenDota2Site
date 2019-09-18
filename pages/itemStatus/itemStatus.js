@@ -14,6 +14,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //提示加载中
+    wx.showLoading({
+      title: '加载中',
+    })
+
     let item_name = options.item_name
     app.openApiProxy({
       aName: "maxItemDetail",
@@ -21,11 +26,12 @@ Page({
         name: item_name
       }
     }).then(res => {
-      console.log(res.result)
       this.setData({
         itemDetail: res.result,
         heroUsedList: res.result.hero_used_list
       })
+
+      wx.hideLoading();
     })
   },
 

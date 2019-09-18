@@ -24,7 +24,7 @@
       </view>
       <view class="cu-item" wx:for="{{playersRankings}}" wx:for-item="heroItem" wx:key="{{index}}" style='height:120rpx' data-index="{{index}}" bindtap='navigatePeer'>
         <view class="zcrRecent">
-          <view class="cu-avatar round lg zcrRecent-item" style="background-image:url('https://api.opendota.com{{heroStats[heroItem.hero_id].img}}')"></view>
+          <view class="cu-avatar round lg zcrRecent-item" style="background-image:url('https://api.opendota.com{{heroList[heroItem.hero_id].img}}')"></view>
           <!-- 胜率/场次 -->
           <view class='zcrRecent-item'>
             <view class='flex justify-between'>

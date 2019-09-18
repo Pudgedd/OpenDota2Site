@@ -18,6 +18,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //提示加载中
+    wx.showLoading({
+      title: '加载中',
+    })
+
     let hero_id = options.hero_id
     this.setData({
       hero_id
@@ -32,7 +37,6 @@ Page({
         name: heroStatsArr[hero_id].name.slice(14)
       }
     }).then(res => {
-      console.log(res.data)
       this.setData({
         heroDetail: res.data
       })
@@ -44,10 +48,11 @@ Page({
         name: heroStatsArr[hero_id].name.slice(14)
       }
     }).then(res => {
-      console.log(res.result)
       this.setData({
         maxHeroDetail: res.result
       })
+
+      wx.hideLoading();
     })
 
     this.callComponent()

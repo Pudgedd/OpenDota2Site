@@ -69,7 +69,7 @@ function getReq(aName, args) {
     url = `https://lkd-ykr.top/DO2/open/doTransfer.json?uri=players/${args.account_id}/ratings&params`
   }
   else if (aName == "matches") {
-    url = `https://lkd-ykr.top/DO2/open/doTransfer.json?uri=matches/${args.match_id}&params&params`
+    url = `https://lkd-ykr.top/DO2/open/doTransfer.json?uri=matches/${args.match_id}&params`
   }
   //英雄信息：英雄属性/英雄头像
   else if (aName == "heroStats") {
@@ -109,10 +109,30 @@ function getReq(aName, args) {
   //物品列表
   else if (aName == "maxItemDetail") {
     url = `https://lkd-ykr.top/DO2/max/getItemDetail.json?name=${args.name}`
-  } 
+  }
   //英雄列表
   else if (aName == "maxItemStat") {
     url = `https://lkd-ykr.top/DO2/max/getItemStat.json`
+  } 
+  //联赛列表
+  else if (aName == "maxLeagueList") {
+    url = `https://lkd-ykr.top/DO2/max/getLeagueList.json?offset=${args.offset}&limit=${args.limit}`
+  } 
+  //联赛比赛
+  else if (aName == "maxLeagueMatches") {
+    url = `https://lkd-ykr.top/DO2/max/getLeagueMatches.json?leagueId=${args.leagueId}`
+  } 
+  //联赛列表
+  else if (aName == "maxVerifiedList") {
+    url = `https://lkd-ykr.top/DO2/max/getVerifiedList.json?offset=${args.offset}&limit=${args.limit}`
+  } 
+  //饰品查询选项列表
+  else if (aName == "options") {
+    url = `https://lkd-ykr.top/DO2/c5/getOptionList.json`
+  } 
+  //饰品列表
+  else if (aName == "stores") {
+    url = `https://lkd-ykr.top/DO2/c5/getStoreList.json?page=${args.page}`
   } 
   return {
     url,
