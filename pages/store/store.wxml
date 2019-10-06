@@ -31,12 +31,6 @@
     <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="text-grey">{{item.name}}</view>
-          <view class="text-orange text-sm flex justify-between">
-            {{item.currency}}{{item.price}}
-            <view class="text-gray text-sm">
-              <text class="margin-lr-xs"></text> 成交量 {{item.deal}}
-            </view>
-          </view>
       </view>
     </view>
   </view>

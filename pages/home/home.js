@@ -21,12 +21,12 @@ Page({
         url: '/pages/search/search'
       },
       {
-        title: '赛事信息(Coming soon...)',
+        title: '赛事',
         img: 'https://image.weilanwl.com/color2.0/plugin/qpct2148.jpg',
         url: '/pages/league/league'
       },
       {
-        title: '饰品(Coming soon...)',
+        title: '饰品',
         img: 'https://image.weilanwl.com/color2.0/plugin/qpczdh2307.jpg',
         url: '/pages/store/store'
       }

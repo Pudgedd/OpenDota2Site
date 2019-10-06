@@ -23,6 +23,7 @@ bottom: 45rpx;
   margin: 5rpx;
   height: 90rpx;
 }
-.text-orange{
-  margin-top: 10rpx
+
+.cu-item {
+  height: 280rpx;
 }
