@@ -132,7 +132,7 @@ function getReq(aName, args) {
   } 
   //饰品列表
   else if (aName == "stores") {
-    url = `https://lkd-ykr.top/DO2/c5/getStoreList.json?page=${args.page}`
+    url = `https://lkd-ykr.top/DO2/c5/getStoreList.json?page=${args.page}&type=${args.type}&rarity=${args.rarity}&tag=${args.tag}&hero=${args.hero}`
   } 
   return {
     url,

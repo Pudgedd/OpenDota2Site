@@ -1,4 +1,16 @@
 <view class="cu-timeline">
+  <view class="cu-time">10-06</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">下午</view>
+        <view class="cu-tag line-cyan">10:33</view>
+      </view>
+      <view class="margin-top">增加了饰品的搜索，滚动穿透问题没有解决，另外下次想增加饰品的详细页面，包括介绍饰品背景故事的一些东西</view>
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
   <view class="cu-time">09-18</view>
   <view class="cu-item">
     <view class="content">

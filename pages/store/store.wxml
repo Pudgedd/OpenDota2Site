@@ -7,15 +7,29 @@
   </view>
 </scroll-view>
 
-	<!-- <view class="cu-form-group">
-		<view class="title">筛选</view>
-		<picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
-		 range="{{multiArray}}">
-			<view class="picker">
-				{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
-			</view>
-		</picker>
-	</view> -->
+
+<!--选项卡-->
+<view class="tabTit box tc bg_f">
+    <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab"><text>{{item}}</text><image src="/images/arrow.png"></image></view>
+</view>
+<!--筛选项-->
+<view class="tabLayer tc" hidden="{{tab[0]}}">
+    <text class="{{filter_type==''?'active':''}}" data-key="" data-index="0" data-txt="类型" bindtap="filter">不限</text>
+    <text class="{{filter_type==item.key?'active':''}}" wx:for="{{filterList.type_list}}" wx:key="" data-key="{{item.key}}" data-index="0" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+<view class="tabLayer tc" hidden="{{tab[1]}}">
+    <text class="{{filter_rarity==''?'active':''}}" data-key="" data-index="1" data-txt="稀有度" bindtap="filter">不限</text>
+    <text class="{{filter_rarity==item.key?'active':''}}" wx:for="{{filterList.rarity_list}}" wx:key="" data-key="{{item.key}}" data-index="1" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+<view class="tabLayer tc" hidden="{{tab[2]}}">
+    <text class="{{filter_tag==''?'active':''}}" data-key="" data-index="2" data-txt="标签" bindtap="filter">不限</text>
+    <text class="{{filter_tag==item.key?'active':''}}" wx:for="{{filterList.tag_list}}" wx:key="" data-key="{{item.key}}" data-index="2" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+<view class="tabLayer tc" hidden="{{tab[3]}}" >
+    <text class="{{filter_hero==''?'active':''}}" data-key="" data-index="3" data-txt="英雄" bindtap="filter">不限</text>
+    <text class="{{filter_hero==item.key?'active':''}}" wx:for="{{filterList.hero_list}}" wx:key="" data-key="{{item.key}}" data-index="3" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+
 
 <scroll-view scroll-y class="hero-list">
   <block>
